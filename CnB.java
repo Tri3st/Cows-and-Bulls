@@ -24,7 +24,7 @@ public class CnB {
         //cows
         int c = 0;
         int b = 0;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < secret.length(); i++) {
             char x = guess.charAt(i);
             String t = "" + x;
             if (secret.contains(t)) c++;
@@ -48,7 +48,6 @@ public class CnB {
                 tmp += this.cows + " cow(s). ";
             }
             if (this.cows == 0 && this.bulls == 0) tmp += "None.";
-        tmp += "The secret code is " + this.secret + "\n";
         return tmp;
     }
 
