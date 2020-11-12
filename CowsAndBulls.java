@@ -14,7 +14,7 @@ public class CowsAndBulls {
 
     public CowsAndBulls(){
         guesses = new ArrayList<>();
-        initSecret();
+        initSecret2();
     }
 
     public ArrayList<CnB> getList(){
@@ -23,6 +23,10 @@ public class CowsAndBulls {
 
     public CnB getLastTurn() {
         return guesses.get(guesses.size()-1);
+    }
+    
+    public static String getSecret() {
+      return secret;
     }
 
     public boolean isEndGame(){
@@ -89,6 +93,33 @@ public class CowsAndBulls {
             if (digit == secretLength) succes = true;
         }
         return succes;
+    }
+    
+    public void initSecret2() {
+        StringBuilder code = new StringBuilder();
+        int strsize;
+        while(true){
+            strsize = sc.nextInt();
+            if (strsize < 0 || strsize > 9) {
+                System.out.printf("Error: can't generate a secret number with a length of %d \" +\n" +
+                        "                    \"because there aren't enough unique digits.", strsize);
+            } else break;
+        }
+        Random random = new Random();
+        int t;
+        for (int i = 0; i < strsize; i++) {
+            while (true) {
+                t = random.nextInt(10);
+                if (code.indexOf(Integer.toString(t)) == -1) {
+                    code.append(Integer.toString(t));
+                    break;
+                }
+            }
+
+        }
+        CowsAndBulls.secret = "" + code;
+        CowsAndBulls.secretLength = code.length();
+
     }
 
     public void printResultGuess(){

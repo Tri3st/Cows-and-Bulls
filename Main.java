@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
         CowsAndBulls cnb = new CowsAndBulls();
         System.out.println("Okay, let's start a game!");
-        while (true){
+       while (true){
             CnB c1;
             if (cnb.isEndGame()) {
                 System.out.println("Congratulations! You guessed the secret code.");
@@ -21,8 +21,6 @@ public class Main {
                 cnb.checkGuess(inp);
             }
         }
-
-
     }
 
 
