@@ -7,25 +7,22 @@ public class Main {
     private static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        CowsAndBulls cnb = new CowsAndBulls();
         System.out.println("Okay, let's start a game!");
+        int codeLength = getCodeLength();
+        int possCodes = getNoOfPossCodes(codeLength);
+        CowsAndBulls cnb = new CowsAndBulls(codeLength, possCodes);
+        System.out.println(printRange(possCodes));
        while (true){
             if (cnb.isEndGame()) {
                 System.out.println("Congratulations! You guessed the secret code.");
                 break;
             }
             else {
-                System.out.println("Turn " + CowsAndBulls.getTurn() + ":");
+                System.out.println("Turn " + cnb.getTurn() + ":");
                 String inp = sc.nextLine();
                 cnb.checkGuess(inp);
             }
         }
-
-        //Implement this
-        
-
-
-
     }
 
   private static int getCodeLength(){

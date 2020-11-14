@@ -11,16 +11,11 @@ public class GenerateCode {
     this.codeLength = codeLength;
     this.possCodes = possCodes;
     this.secret = generateCode(codeLength, possCodes);
-    System.out.println(printCode());
   }
-  
-  /* moet in de andere klasse gedaan worden
-   *
-  public boolean checkSecret(String s) {
-    if (s != null && !s.equals("")) return (s.equals(this.secret));
-    else return false;
+
+  protected String getCode() {
+    return this.secret;
   }
-  */
   
   private static char[] fillArray() {
     char[] alph = new char[36];
