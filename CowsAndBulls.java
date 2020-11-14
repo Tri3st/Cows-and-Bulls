@@ -14,7 +14,9 @@ public class CowsAndBulls {
 
     public CowsAndBulls(){
         guesses = new ArrayList<>();
-        initSecret2();
+        //initSecret2();
+        //get secretcode length and possible no of possible codes
+        secret = GenerateCode(codeLength, noOfPossCodes);
     }
 
     public ArrayList<CnB> getList(){
