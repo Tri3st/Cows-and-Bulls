@@ -9,14 +9,14 @@ public class CowsAndBulls {
     private int secretLength;
     private int possNoOfCodes;
     private boolean endGame;
-    private int turn;
+    private int turns;
     private ArrayList<CnB> guesses;
     private static Scanner sc = new Scanner(System.in);
 
     public CowsAndBulls(int secretLength, int possNoOfCodes){
         this.secretLength = secretLength;
         this.possNoOfCodes = possNoOfCodes;
-        turn = 1;
+        turns = 0;
         guesses = new ArrayList<>();
         //get secretcode length and possible no of possible codes
         GenerateCode gnc = new GenerateCode(secretLength, possNoOfCodes);
@@ -40,11 +40,12 @@ public class CowsAndBulls {
     }
 
     public void checkGuess (String guess){
-        CnB gu = new CnB(secret, guess);
+        this.turns++;
+        CnB gu = new CnB(secret, guess, turns);
         guesses.add(gu);
         System.out.println(gu.toString());
         if (gu.getBulls() == secretLength) endGame = true;
-        this.turn++;
+
     }
 
     /*public int getSecretLength() {
@@ -52,7 +53,7 @@ public class CowsAndBulls {
     }*/
 
     public int getTurn() {
-        return turn;
+        return turns;
     }
 
     
@@ -68,14 +69,15 @@ public class CowsAndBulls {
         return succes;
     }
     
-    public void printResultGuess(){
+    public String printResultGuess(){
         String tmp = "";
         int count = 1;
         tmp += "The secret code was : " + this.secret + "\n";
         for (CnB c: guesses){
-            tmp += "Turn " + count + " : \n";
-            tmp += c.toString();
+            tmp += c.toStringLong();
+            count++;
         }
+        return tmp;
     }
 
 }

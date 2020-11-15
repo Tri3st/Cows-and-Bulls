@@ -15,10 +15,12 @@ public class Main {
        while (true){
             if (cnb.isEndGame()) {
                 System.out.println("Congratulations! You guessed the secret code.");
+                System.out.printf("in %d turns.", cnb.getTurn());
+                System.out.println("\n\n" + cnb.printResultGuess());
                 break;
             }
             else {
-                System.out.println("Turn " + cnb.getTurn() + ":");
+                System.out.println("Turn " + (cnb.getTurn() +1) + ":");
                 String inp = sc.nextLine();
                 cnb.checkGuess(inp);
             }

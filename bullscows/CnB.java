@@ -3,12 +3,14 @@ package bullscows;
 public class CnB {
     private final String secret;
     private final String guess;
+    private int turn;
     private int cows;
     private int bulls;
 
-    public CnB (String secret,String guess) {
+    public CnB (String secret,String guess, int turn) {
         this.secret = secret;
         this.guess = guess;
+        this.turn = turn;
         calculateCnB();
     }
 
@@ -35,9 +37,27 @@ public class CnB {
         this.bulls = b;
     }
 
+    public String toStringLong() {
+        String tmp = "";
+        tmp += "Turn " + this.turn + " | ";
+        tmp += "Guess : \'" + this.guess + "\'" + " | ";
+        tmp += "Grade: ";
+        if (this.bulls != 0) {
+            tmp += this.bulls + " bull(s)";
+            tmp += (this.cows == 0)?". ":"";
+        }
+        tmp += (this.bulls != 0 && this.cows != 0)?" and ":"";
+        if (this.cows != 0){
+            tmp += this.cows + " cow(s). ";
+        }
+        if (this.cows == 0 && this.bulls == 0) tmp += "None.";
+        tmp += "\n";
+        return tmp;
+    }
+
     public String toString() {
         String tmp = "";
-        //tmp += "Your guess : " + this.guess + "\n";
+        //tmp += "Turn " + this.turn + " : ";
         tmp += "Grade: ";
             if (this.bulls != 0) {
                 tmp += this.bulls + " bull(s)";
@@ -48,6 +68,7 @@ public class CnB {
                 tmp += this.cows + " cow(s). ";
             }
             if (this.cows == 0 && this.bulls == 0) tmp += "None.";
+            tmp += "\n";
         return tmp;
     }
 
