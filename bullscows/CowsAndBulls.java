@@ -9,15 +9,15 @@ public class CowsAndBulls {
     private int secretLength;
     private int possNoOfCodes;
     private boolean endGame;
-    private int turn = 1;
+    private int turn;
     private ArrayList<CnB> guesses;
     private static Scanner sc = new Scanner(System.in);
 
     public CowsAndBulls(int secretLength, int possNoOfCodes){
         this.secretLength = secretLength;
         this.possNoOfCodes = possNoOfCodes;
+        turn = 1;
         guesses = new ArrayList<>();
-        //initSecret2();
         //get secretcode length and possible no of possible codes
         GenerateCode gnc = new GenerateCode(secretLength, possNoOfCodes);
         secret = gnc.getCode();
@@ -27,13 +27,13 @@ public class CowsAndBulls {
         return guesses;
     }
 
-    public CnB getLastTurn() {
+    /*public CnB getLastTurn() {
         return guesses.get(guesses.size()-1);
-    }
+    }*/
     
-    public String getSecret() {
+    /*public String getSecret() {
       return secret;
-    }
+    }*/
 
     public boolean isEndGame(){
         return endGame;
@@ -47,9 +47,9 @@ public class CowsAndBulls {
         this.turn++;
     }
 
-    public int getSecretLength() {
+    /*public int getSecretLength() {
         return secretLength;
-    }
+    }*/
 
     public int getTurn() {
         return turn;

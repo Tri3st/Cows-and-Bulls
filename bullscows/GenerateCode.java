@@ -48,12 +48,4 @@ public class GenerateCode {
     for (int k = 0; k < l; k++) sec += initChars[nums[k]];
     return sec;
   }
-  
-  public String printCode(){
-    
-    String tmp = String.format("code : %s%n", this.secret);
-    return tmp;
-  }
-  
-  
 }

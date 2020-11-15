@@ -42,6 +42,7 @@ public class Main {
     System.out.println("Input the number of possible symbols in the code:");
     while (true) {
       pc = sc.nextInt();
+      sc.nextLine();
       if (pc >= codeLength &&  pc > 0 && pc < 37) break;
       else System.out.println("Incorrect input. try again.");
     }

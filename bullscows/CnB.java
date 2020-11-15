@@ -1,8 +1,8 @@
 package bullscows;
 
 public class CnB {
-    private String secret;
-    private String guess;
+    private final String secret;
+    private final String guess;
     private int cows;
     private int bulls;
 
